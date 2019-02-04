@@ -8,19 +8,27 @@
 
 import CoreML
 
+struct DetectedObjectPrediction {
+    let confidence: Double
+    let classIndex: Int // max 91
+    let anchorIndex: Int // max 1917
+    let rect: CGRect
+}
+
 extension MLMultiArray {
     /*
      # Usage
      `boxPredictions[[0, 0, 0, 0, 1]]`
      */
     subscript(indices: [Int]) -> NSNumber? {
-        guard indices.count != self.shape.count else { return nil }
+        guard indices.count == self.shape.count else { return nil }
         let indices: [NSNumber] = indices as [NSNumber]
         return self[indices]
     }
     
-    /*
-     [1, 1, 91, 1, 1917]
-     [1, 1, 4, 1, 1917]
-     */
+    subscript(classIndex: Int, anchorIndex: Int) -> NSNumber? {
+        return self[[0, 0, classIndex, 0, anchorIndex]]
+    }
 }
+
+

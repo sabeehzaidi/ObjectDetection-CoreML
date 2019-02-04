@@ -24,6 +24,9 @@ class ViewController: UIViewController {
     var request: VNCoreMLRequest?
     var visionModel: VNCoreMLModel?
     
+    // MARK: - Post Processor
+    let postProcessor = SSDMobileNetPostProcessor()
+    
     // MARK: - AV Property
     var videoCapture: VideoCapture!
     
@@ -118,20 +121,26 @@ extension ViewController {
             observations.count >= 2,
             let classPredictions = observations[0].featureValue.multiArrayValue,
             let boxPredictions = observations[1].featureValue.multiArrayValue {
+                
+//            print(classPredictions) // Double 1 x 1 x 91 x 1 x 1917 array
+//            print(boxPredictions)   // Double 1 x 1 x 4 x 1 x 1917 array
+//            
+//            print(classPredictions.shape)
+//            print(boxPredictions.shape)
+//            
+//            print(boxPredictions[0], boxPredictions[1])
+//            
+//            print(classPredictions[[0, 0, 0, 0, 1]])
+//            
+//            print(boxPredictions[20])
+
+            let predictions = postProcessor.convertToPredictions(from: classPredictions,
+                                                                 and: boxPredictions)
             
-            print(classPredictions) // Double 1 x 1 x 91 x 1 x 1917 array
-            print(boxPredictions) // Double 1 x 1 x 4 x 1 x 1917 array
-            
-            print(classPredictions.shape)
-            print(boxPredictions.shape)
-            
-            print(boxPredictions[0], boxPredictions[1])
-            
-            print(boxPredictions[[0, 0, 0, 0, 1]])
-            
-            print(boxPredictions[20])
+            print(predictions.count)
         }
     }
+    
 }
 
 

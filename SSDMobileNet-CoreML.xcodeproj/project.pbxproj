@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		553366BE22047A9800A67647 /* MLMultiArray+SSDMobileNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553366BD22047A9800A67647 /* MLMultiArray+SSDMobileNet.swift */; };
+		553366C62204898800A67647 /* SSDMobileNet_CoreMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553366C52204898800A67647 /* SSDMobileNet_CoreMLTests.swift */; };
+		553366CD2204899B00A67647 /* ssd_mobilenet_feature_extractor.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 554F14AF220366DD00B828B0 /* ssd_mobilenet_feature_extractor.mlmodel */; };
+		553366CF220489DD00A67647 /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553366CE220489DD00A67647 /* UIImage+CVPixelBuffer.swift */; };
+		553366D0220489E000A67647 /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553366CE220489DD00A67647 /* UIImage+CVPixelBuffer.swift */; };
+		553366D22204BBED00A67647 /* Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553366D12204BBED00A67647 /* Anchors.swift */; };
 		554F149C220362AB00B828B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F149B220362AB00B828B0 /* AppDelegate.swift */; };
 		554F149E220362AB00B828B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F149D220362AB00B828B0 /* ViewController.swift */; };
 		554F14A1220362AB00B828B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554F149F220362AB00B828B0 /* Main.storyboard */; };
@@ -15,10 +20,28 @@
 		554F14A6220362AC00B828B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554F14A4220362AC00B828B0 /* LaunchScreen.storyboard */; };
 		554F14AE220362DA00B828B0 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F14AD220362DA00B828B0 /* VideoCapture.swift */; };
 		554F14B0220366DD00B828B0 /* ssd_mobilenet_feature_extractor.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 554F14AF220366DD00B828B0 /* ssd_mobilenet_feature_extractor.mlmodel */; };
+		558918E922080C5500F182BA /* SSDMobileNetPostProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558918E822080C5500F182BA /* SSDMobileNetPostProcessor.swift */; };
+		558918EB2208191900F182BA /* coco_labels_list.txt in Resources */ = {isa = PBXBuildFile; fileRef = 558918EA2208191900F182BA /* coco_labels_list.txt */; };
+		558918ED2208218800F182BA /* DrawingBoundingBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558918EC2208218800F182BA /* DrawingBoundingBoxView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		553366C82204898800A67647 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 554F1490220362AB00B828B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 554F1497220362AB00B828B0;
+			remoteInfo = "SSDMobileNet-CoreML";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		553366BD22047A9800A67647 /* MLMultiArray+SSDMobileNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MLMultiArray+SSDMobileNet.swift"; sourceTree = "<group>"; };
+		553366C32204898800A67647 /* SSDMobileNet-CoreMLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SSDMobileNet-CoreMLTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		553366C52204898800A67647 /* SSDMobileNet_CoreMLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDMobileNet_CoreMLTests.swift; sourceTree = "<group>"; };
+		553366C72204898800A67647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		553366CE220489DD00A67647 /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
+		553366D12204BBED00A67647 /* Anchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchors.swift; sourceTree = "<group>"; };
 		554F1498220362AB00B828B0 /* SSDMobileNet-CoreML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SSDMobileNet-CoreML.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		554F149B220362AB00B828B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		554F149D220362AB00B828B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,9 +51,19 @@
 		554F14A7220362AC00B828B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		554F14AD220362DA00B828B0 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		554F14AF220366DD00B828B0 /* ssd_mobilenet_feature_extractor.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ssd_mobilenet_feature_extractor.mlmodel; sourceTree = "<group>"; };
+		558918E822080C5500F182BA /* SSDMobileNetPostProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDMobileNetPostProcessor.swift; sourceTree = "<group>"; };
+		558918EA2208191900F182BA /* coco_labels_list.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = coco_labels_list.txt; sourceTree = "<group>"; };
+		558918EC2208218800F182BA /* DrawingBoundingBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBoundingBoxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		553366C02204898800A67647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		554F1495220362AB00B828B0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,10 +74,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		553366C42204898800A67647 /* SSDMobileNet-CoreMLTests */ = {
+			isa = PBXGroup;
+			children = (
+				553366C52204898800A67647 /* SSDMobileNet_CoreMLTests.swift */,
+				553366C72204898800A67647 /* Info.plist */,
+			);
+			path = "SSDMobileNet-CoreMLTests";
+			sourceTree = "<group>";
+		};
 		554F148F220362AB00B828B0 = {
 			isa = PBXGroup;
 			children = (
 				554F149A220362AB00B828B0 /* SSDMobileNet-CoreML */,
+				553366C42204898800A67647 /* SSDMobileNet-CoreMLTests */,
 				554F1499220362AB00B828B0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				554F1498220362AB00B828B0 /* SSDMobileNet-CoreML.app */,
+				553366C32204898800A67647 /* SSDMobileNet-CoreMLTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,9 +105,14 @@
 			isa = PBXGroup;
 			children = (
 				554F14AF220366DD00B828B0 /* ssd_mobilenet_feature_extractor.mlmodel */,
+				558918EA2208191900F182BA /* coco_labels_list.txt */,
 				554F149B220362AB00B828B0 /* AppDelegate.swift */,
 				554F149D220362AB00B828B0 /* ViewController.swift */,
+				558918EC2208218800F182BA /* DrawingBoundingBoxView.swift */,
+				558918E822080C5500F182BA /* SSDMobileNetPostProcessor.swift */,
 				553366BD22047A9800A67647 /* MLMultiArray+SSDMobileNet.swift */,
+				553366D12204BBED00A67647 /* Anchors.swift */,
+				553366CE220489DD00A67647 /* UIImage+CVPixelBuffer.swift */,
 				554F14AD220362DA00B828B0 /* VideoCapture.swift */,
 				554F149F220362AB00B828B0 /* Main.storyboard */,
 				554F14A2220362AC00B828B0 /* Assets.xcassets */,
@@ -76,6 +125,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		553366C22204898800A67647 /* SSDMobileNet-CoreMLTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 553366CA2204898800A67647 /* Build configuration list for PBXNativeTarget "SSDMobileNet-CoreMLTests" */;
+			buildPhases = (
+				553366BF2204898800A67647 /* Sources */,
+				553366C02204898800A67647 /* Frameworks */,
+				553366C12204898800A67647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				553366C92204898800A67647 /* PBXTargetDependency */,
+			);
+			name = "SSDMobileNet-CoreMLTests";
+			productName = "SSDMobileNet-CoreMLTests";
+			productReference = 553366C32204898800A67647 /* SSDMobileNet-CoreMLTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		554F1497220362AB00B828B0 /* SSDMobileNet-CoreML */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 554F14AA220362AC00B828B0 /* Build configuration list for PBXNativeTarget "SSDMobileNet-CoreML" */;
@@ -103,6 +170,10 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = tucan9389;
 				TargetAttributes = {
+					553366C22204898800A67647 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 554F1497220362AB00B828B0;
+					};
 					554F1497220362AB00B828B0 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -122,11 +193,19 @@
 			projectRoot = "";
 			targets = (
 				554F1497220362AB00B828B0 /* SSDMobileNet-CoreML */,
+				553366C22204898800A67647 /* SSDMobileNet-CoreMLTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		553366C12204898800A67647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		554F1496220362AB00B828B0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -134,17 +213,32 @@
 				554F14A6220362AC00B828B0 /* LaunchScreen.storyboard in Resources */,
 				554F14A3220362AC00B828B0 /* Assets.xcassets in Resources */,
 				554F14A1220362AB00B828B0 /* Main.storyboard in Resources */,
+				558918EB2208191900F182BA /* coco_labels_list.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		553366BF2204898800A67647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553366C62204898800A67647 /* SSDMobileNet_CoreMLTests.swift in Sources */,
+				553366D0220489E000A67647 /* UIImage+CVPixelBuffer.swift in Sources */,
+				553366CD2204899B00A67647 /* ssd_mobilenet_feature_extractor.mlmodel in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		554F1494220362AB00B828B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				554F149E220362AB00B828B0 /* ViewController.swift in Sources */,
+				558918E922080C5500F182BA /* SSDMobileNetPostProcessor.swift in Sources */,
+				553366D22204BBED00A67647 /* Anchors.swift in Sources */,
+				558918ED2208218800F182BA /* DrawingBoundingBoxView.swift in Sources */,
+				553366CF220489DD00A67647 /* UIImage+CVPixelBuffer.swift in Sources */,
 				554F14B0220366DD00B828B0 /* ssd_mobilenet_feature_extractor.mlmodel in Sources */,
 				554F14AE220362DA00B828B0 /* VideoCapture.swift in Sources */,
 				553366BE22047A9800A67647 /* MLMultiArray+SSDMobileNet.swift in Sources */,
@@ -153,6 +247,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		553366C92204898800A67647 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 554F1497220362AB00B828B0 /* SSDMobileNet-CoreML */;
+			targetProxy = 553366C82204898800A67647 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		554F149F220362AB00B828B0 /* Main.storyboard */ = {
@@ -174,6 +276,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		553366CB2204898800A67647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5WXJ4Z4H69;
+				INFOPLIST_FILE = "SSDMobileNet-CoreMLTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tucan9389.SSDMobileNet-CoreMLTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SSDMobileNet-CoreML.app/SSDMobileNet-CoreML";
+			};
+			name = Debug;
+		};
+		553366CC2204898800A67647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5WXJ4Z4H69;
+				INFOPLIST_FILE = "SSDMobileNet-CoreMLTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tucan9389.SSDMobileNet-CoreMLTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SSDMobileNet-CoreML.app/SSDMobileNet-CoreML";
+			};
+			name = Release;
+		};
 		554F14A8220362AC00B828B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -329,6 +471,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		553366CA2204898800A67647 /* Build configuration list for PBXNativeTarget "SSDMobileNet-CoreMLTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553366CB2204898800A67647 /* Debug */,
+				553366CC2204898800A67647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		554F1493220362AB00B828B0 /* Build configuration list for PBXProject "SSDMobileNet-CoreML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
