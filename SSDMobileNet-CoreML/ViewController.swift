@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 
     // MARK: - UI Properties
     @IBOutlet weak var videoPreview: UIView!
-    // @IBOutlet weak var jointView: DrawingJointView!
+    @IBOutlet weak var boxesView: DrawingBoundingBoxView!
     @IBOutlet weak var labelsTableView: UITableView!
     
     // MARK - Core ML model
@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     
     // MARK: - AV Property
     var videoCapture: VideoCapture!
+    let semaphore = DispatchSemaphore(value: 1)
     
     // MARK: - TableView Data
     var predictions: [DetectedObjectPrediction] = []
@@ -114,6 +115,7 @@ extension ViewController {
     func predictUsingVision(pixelBuffer: CVPixelBuffer) {
         guard let request = request else { fatalError() }
         // vision framework configures the input size of image following our model's input configuration automatically
+        self.semaphore.wait()
         let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer)
         try? handler.perform([request])
     }
@@ -140,12 +142,13 @@ extension ViewController {
             let predictions: [DetectedObjectPrediction] = postProcessor.convertToPredictions(from: classPredictions, and: boxPredictions)
             self.predictions = predictions
             DispatchQueue.main.async {
+                self.boxesView.predictedObjects = predictions
                 self.labelsTableView.reloadData()
             }
             print(predictions.count)
         }
+        self.semaphore.signal()
     }
-    
 }
 
 extension ViewController: UITableViewDataSource {

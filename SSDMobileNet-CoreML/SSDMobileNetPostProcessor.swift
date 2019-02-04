@@ -157,4 +157,12 @@ extension CGRect {
         let hStr = String(format: "%.\(digit)f", height)
         return "(\(xStr), \(yStr), \(wStr), \(hStr))"
     }
+    
+    func scale(to scale: CGFloat) -> CGRect {
+        return CGRect(x: origin.x * scale, y: origin.y * scale, width: width * scale, height: height * scale)
+    }
+    
+    func scale(to scale: CGSize) -> CGRect {
+        return CGRect(x: origin.x * scale.width, y: origin.y * scale.height, width: width * scale.width, height: height * scale.height)
+    }
 }
