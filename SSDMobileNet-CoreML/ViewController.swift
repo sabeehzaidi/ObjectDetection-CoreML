@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     // MARK: - UI Properties
     @IBOutlet weak var videoPreview: UIView!
     // @IBOutlet weak var jointView: DrawingJointView!
-    // @IBOutlet weak var labelsTableView: UITableView!
+    @IBOutlet weak var labelsTableView: UITableView!
     
     // MARK - Core ML model
     typealias EstimationModel = ssd_mobilenet_feature_extractor
@@ -29,6 +29,9 @@ class ViewController: UIViewController {
     
     // MARK: - AV Property
     var videoCapture: VideoCapture!
+    
+    // MARK: - TableView Data
+    var predictions: [DetectedObjectPrediction] = []
     
     // MARK: - View Controller Life Cycle
     override func viewDidLoad() {
@@ -134,13 +137,33 @@ extension ViewController {
 //            
 //            print(boxPredictions[20])
 
-            let predictions = postProcessor.convertToPredictions(from: classPredictions,
-                                                                 and: boxPredictions)
-            
+            let predictions: [DetectedObjectPrediction] = postProcessor.convertToPredictions(from: classPredictions, and: boxPredictions)
+            self.predictions = predictions
+            DispatchQueue.main.async {
+                self.labelsTableView.reloadData()
+            }
             print(predictions.count)
         }
     }
     
 }
 
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return predictions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell") else {
+            return UITableViewCell()
+        }
 
+        let rectString = predictions[indexPath.row].rect.toString(digit: 2)
+        let confidence = predictions[indexPath.row].confidence
+        let confidenceString = String(format: "%.3f", Math.sigmoid(confidence))
+        
+        cell.textLabel?.text = postProcessor.getClassName(from: predictions[indexPath.row])
+        cell.detailTextLabel?.text = "\(rectString), \(confidenceString)"
+        return cell
+    }
+}

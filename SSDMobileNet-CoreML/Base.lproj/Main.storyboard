@@ -25,17 +25,55 @@
                                     <constraint firstAttribute="width" secondItem="UrN-1E-L02" secondAttribute="height" multiplier="375:500" id="PF1-UQ-hYD"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t4v-7L-Eav">
+                                <rect key="frame" x="0.0" y="544" width="375" height="268"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="InfoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InfoCell" textLabel="MTg-fs-vwi" detailTextLabel="T2D-VY-duW" rowHeight="34" style="IBUITableViewCellStyleValue1" id="YAJ-Zh-aoX">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="34"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YAJ-Zh-aoX" id="QaD-5m-dNZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="33.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MTg-fs-vwi">
+                                                    <rect key="frame" x="15.000000000000004" y="11" width="36.333333333333336" height="12"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T2D-VY-duW">
+                                                    <rect key="frame" x="302.33333333333331" y="11" width="57.666666666666664" height="12"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ky0-JL-iQ7"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="UrN-1E-L02" secondAttribute="trailing" id="THM-pX-CUO"/>
                             <constraint firstItem="UrN-1E-L02" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UyN-2M-19G"/>
+                            <constraint firstItem="t4v-7L-Eav" firstAttribute="top" secondItem="UrN-1E-L02" secondAttribute="bottom" id="Xvb-er-j8B"/>
                             <constraint firstItem="UrN-1E-L02" firstAttribute="width" secondItem="UrN-1E-L02" secondAttribute="height" multiplier="375:500" id="tNG-gg-MS1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t4v-7L-Eav" secondAttribute="trailing" id="tsF-li-PPS"/>
+                            <constraint firstAttribute="bottom" secondItem="t4v-7L-Eav" secondAttribute="bottom" id="vg4-pR-I1K"/>
+                            <constraint firstItem="t4v-7L-Eav" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xRT-a2-46N"/>
                             <constraint firstItem="UrN-1E-L02" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yDI-dZ-rFx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="labelsTableView" destination="t4v-7L-Eav" id="cnb-zw-15z"/>
                         <outlet property="videoPreview" destination="UrN-1E-L02" id="nnD-GY-0P1"/>
                     </connections>
                 </viewController>

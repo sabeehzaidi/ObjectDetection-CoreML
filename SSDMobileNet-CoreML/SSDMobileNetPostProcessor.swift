@@ -10,7 +10,24 @@ import CoreML
 
 class SSDMobileNetPostProcessor {
     
-    func convertToPredictions(from classResults: MLMultiArray, and boxResults: MLMultiArray) -> [DetectedObjectPrediction] {
+    var classNames: [String]? = nil
+    
+    init() {
+        if let path = Bundle.main.path(forResource: "coco_labels_list", ofType: "txt") {
+            do {
+                let data = try String(contentsOfFile: path, encoding: .utf8)
+                classNames = data.components(separatedBy: .newlines)
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    public func getClassName(from prediction: DetectedObjectPrediction) -> String? {
+        return classNames?[prediction.classIndex]
+    }
+    
+    public func convertToPredictions(from classResults: MLMultiArray, and boxResults: MLMultiArray) -> [DetectedObjectPrediction] {
         //
         let predictionsArray: [[DetectedObjectPrediction]] = filterNonZeroIndicesAndConvert(from: classResults, from: boxResults)
         //
@@ -131,5 +148,13 @@ extension CGRect {
         let intersectionArea = max(intersectionMaxY - intersectionMinY, 0) *
             max(intersectionMaxX - intersectionMinX, 0)
         return Float(intersectionArea / (areaA + areaB - intersectionArea))
+    }
+    
+    func toString(digit: Int) -> String {
+        let xStr = String(format: "%.\(digit)f", origin.x)
+        let yStr = String(format: "%.\(digit)f", origin.y)
+        let wStr = String(format: "%.\(digit)f", width)
+        let hStr = String(format: "%.\(digit)f", height)
+        return "(\(xStr), \(yStr), \(wStr), \(hStr))"
     }
 }

@@ -31,4 +31,8 @@ extension MLMultiArray {
     }
 }
 
-
+struct Math {
+    static func sigmoid(_ val:Double) -> Double {
+        return 1.0/(1.0 + exp(-val))
+    }
+}
