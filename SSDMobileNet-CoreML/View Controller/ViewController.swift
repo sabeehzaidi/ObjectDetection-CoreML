@@ -17,6 +17,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var boxesView: DrawingBoundingBoxView!
     @IBOutlet weak var labelsTableView: UITableView!
     
+    @IBOutlet weak var inferenceLabel: UILabel!
+    @IBOutlet weak var etimeLabel: UILabel!
+    @IBOutlet weak var fpsLabel: UILabel!
+    
     // MARK - Core ML model
     typealias EstimationModel = ssd_mobilenet_feature_extractor
     
@@ -30,9 +34,13 @@ class ViewController: UIViewController {
     // MARK: - AV Property
     var videoCapture: VideoCapture!
     let semaphore = DispatchSemaphore(value: 1)
+    var lastExecution = Date()
     
     // MARK: - TableView Data
     var predictions: [DetectedObjectPrediction] = []
+    
+    // MARK - Performance Measurement Property
+    private let 👨‍🔧 = 📏()
     
     // MARK: - View Controller Life Cycle
     override func viewDidLoad() {
@@ -43,6 +51,9 @@ class ViewController: UIViewController {
         
         // setup camera
         setUpCamera()
+        
+        // setup delegate for performance measurement
+        👨‍🔧.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -105,6 +116,9 @@ extension ViewController: VideoCaptureDelegate {
     func videoCapture(_ capture: VideoCapture, didCaptureVideoFrame pixelBuffer: CVPixelBuffer?, timestamp: CMTime) {
         // the captured image from camera is contained on pixelBuffer
         if let pixelBuffer = pixelBuffer {
+            // start of measure
+            self.👨‍🔧.🎬👏()
+            
             // predict!
             self.predictUsingVision(pixelBuffer: pixelBuffer)
         }
@@ -122,6 +136,7 @@ extension ViewController {
     
     // MARK: - Poseprocessing
     func visionRequestDidComplete(request: VNRequest, error: Error?) {
+        self.👨‍🔧.🏷(with: "endInference")
         if let observations = request.results as? [VNCoreMLFeatureValueObservation],
             observations.count >= 2,
             let classPredictions = observations[0].featureValue.multiArrayValue,
@@ -144,8 +159,14 @@ extension ViewController {
             DispatchQueue.main.async {
                 self.boxesView.predictedObjects = predictions
                 self.labelsTableView.reloadData()
+                
+                // end of measure
+                self.👨‍🔧.🎬🤚()
             }
             print(predictions.count)
+        } else {
+            // end of measure
+            self.👨‍🔧.🎬🤚()
         }
         self.semaphore.signal()
     }
@@ -168,5 +189,15 @@ extension ViewController: UITableViewDataSource {
         cell.textLabel?.text = postProcessor.getClassName(from: predictions[indexPath.row])
         cell.detailTextLabel?.text = "\(rectString), \(confidenceString)"
         return cell
+    }
+}
+
+// MARK: - 📏(Performance Measurement) Delegate
+extension ViewController: 📏Delegate {
+    func updateMeasure(inferenceTime: Double, executionTime: Double, fps: Int) {
+        //print(executionTime, fps)
+        self.inferenceLabel.text = "inference: \(Int(inferenceTime*1000.0)) mm"
+        self.etimeLabel.text = "execution: \(Int(executionTime*1000.0)) mm"
+        self.fpsLabel.text = "fps: \(fps)"
     }
 }

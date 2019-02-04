@@ -9,7 +9,6 @@
 import CoreML
 
 class SSDMobileNetPostProcessor {
-    
     var classNames: [String]? = nil
     
     init() {
@@ -40,29 +39,28 @@ class SSDMobileNetPostProcessor {
         let predictionCount: Int = Int(truncating: classResults.shape[4])   // 1917
         let onehoutCount: Int = Int(truncating: classResults.shape[2])      // 91
         
-        var predictionsArray: [[DetectedObjectPrediction]] = []
+        var predictionsArray: [[DetectedObjectPrediction]] = Array(repeating: [], count: onehoutCount)
         for classIndex in 1..<onehoutCount {
-            var predictions: [DetectedObjectPrediction] = []
             for anchorIndex in 0..<predictionCount {
-                if let confidence = classResults[[0, 0, classIndex, 0, anchorIndex]]?.doubleValue,
-                    confidence > 0 {
-                    
+                if let confidence = classResults[classIndex, anchorIndex]?.doubleValue,
+                    confidence > Hyperparameter.confidenceThreshold {
+                
                     let tValues = [
-                        boxResults[[0, 0, 0, 0, anchorIndex]],
-                        boxResults[[0, 0, 1, 0, anchorIndex]],
-                        boxResults[[0, 0, 2, 0, anchorIndex]],
-                        boxResults[[0, 0, 3, 0, anchorIndex]]
+                        boxResults[0, anchorIndex],
+                        boxResults[1, anchorIndex],
+                        boxResults[2, anchorIndex],
+                        boxResults[3, anchorIndex]
                         ].compactMap{ return $0?.doubleValue }
                     
                     let rect: CGRect = makeRect(with: tValues, on: Anchors.ssdAnchors[anchorIndex])
                     
-                    predictions.append(DetectedObjectPrediction(confidence: confidence,
+                    predictionsArray[classIndex].append(DetectedObjectPrediction(confidence: confidence,
                                                                 classIndex: classIndex,
                                                                 anchorIndex: anchorIndex,
-                                                                rect: rect))
+                                                                rect: rect,
+                                                                className: classNames?[classIndex]))
                 }
             }
-            predictionsArray.append(predictions)
         }
         
         return predictionsArray
@@ -115,7 +113,7 @@ class SSDMobileNetPostProcessor {
             
             var shouldSelect = true
             for result in results {
-                if CGRect.IOU(prediction.rect, result.rect) > 0.3 {
+                if CGRect.IOU(prediction.rect, result.rect) > Hyperparameter.IOUThreshold {
                     shouldSelect = false
                     break
                 }
@@ -163,6 +161,9 @@ extension CGRect {
     }
     
     func scale(to scale: CGSize) -> CGRect {
-        return CGRect(x: origin.x * scale.width, y: origin.y * scale.height, width: width * scale.width, height: height * scale.height)
+        return CGRect(x: origin.x * scale.width,
+                      y: origin.y * scale.height,
+                      width: width * scale.width,
+                      height: height * scale.height)
     }
 }

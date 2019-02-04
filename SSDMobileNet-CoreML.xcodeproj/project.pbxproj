@@ -23,6 +23,8 @@
 		558918E922080C5500F182BA /* SSDMobileNetPostProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558918E822080C5500F182BA /* SSDMobileNetPostProcessor.swift */; };
 		558918EB2208191900F182BA /* coco_labels_list.txt in Resources */ = {isa = PBXBuildFile; fileRef = 558918EA2208191900F182BA /* coco_labels_list.txt */; };
 		558918ED2208218800F182BA /* DrawingBoundingBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558918EC2208218800F182BA /* DrawingBoundingBoxView.swift */; };
+		558918EF22089FFE00F182BA /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558918EE22089FFE00F182BA /* Measure.swift */; };
+		558918F32208A7CC00F182BA /* Hyperparameter+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558918F22208A7CC00F182BA /* Hyperparameter+UI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		558918E822080C5500F182BA /* SSDMobileNetPostProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDMobileNetPostProcessor.swift; sourceTree = "<group>"; };
 		558918EA2208191900F182BA /* coco_labels_list.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = coco_labels_list.txt; sourceTree = "<group>"; };
 		558918EC2208218800F182BA /* DrawingBoundingBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBoundingBoxView.swift; sourceTree = "<group>"; };
+		558918EE22089FFE00F182BA /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
+		558918F22208A7CC00F182BA /* Hyperparameter+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hyperparameter+UI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,19 +111,37 @@
 				554F14AF220366DD00B828B0 /* ssd_mobilenet_feature_extractor.mlmodel */,
 				558918EA2208191900F182BA /* coco_labels_list.txt */,
 				554F149B220362AB00B828B0 /* AppDelegate.swift */,
-				554F149D220362AB00B828B0 /* ViewController.swift */,
-				558918EC2208218800F182BA /* DrawingBoundingBoxView.swift */,
-				558918E822080C5500F182BA /* SSDMobileNetPostProcessor.swift */,
-				553366BD22047A9800A67647 /* MLMultiArray+SSDMobileNet.swift */,
-				553366D12204BBED00A67647 /* Anchors.swift */,
-				553366CE220489DD00A67647 /* UIImage+CVPixelBuffer.swift */,
+				558918F12208A4F300F182BA /* View Controller */,
+				558918F02208A4E000F182BA /* Helpers */,
 				554F14AD220362DA00B828B0 /* VideoCapture.swift */,
+				558918EE22089FFE00F182BA /* Measure.swift */,
 				554F149F220362AB00B828B0 /* Main.storyboard */,
 				554F14A2220362AC00B828B0 /* Assets.xcassets */,
 				554F14A4220362AC00B828B0 /* LaunchScreen.storyboard */,
 				554F14A7220362AC00B828B0 /* Info.plist */,
 			);
 			path = "SSDMobileNet-CoreML";
+			sourceTree = "<group>";
+		};
+		558918F02208A4E000F182BA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				558918E822080C5500F182BA /* SSDMobileNetPostProcessor.swift */,
+				553366BD22047A9800A67647 /* MLMultiArray+SSDMobileNet.swift */,
+				553366D12204BBED00A67647 /* Anchors.swift */,
+				553366CE220489DD00A67647 /* UIImage+CVPixelBuffer.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		558918F12208A4F300F182BA /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				554F149D220362AB00B828B0 /* ViewController.swift */,
+				558918EC2208218800F182BA /* DrawingBoundingBoxView.swift */,
+				558918F22208A7CC00F182BA /* Hyperparameter+UI.swift */,
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +258,8 @@
 			files = (
 				554F149E220362AB00B828B0 /* ViewController.swift in Sources */,
 				558918E922080C5500F182BA /* SSDMobileNetPostProcessor.swift in Sources */,
+				558918EF22089FFE00F182BA /* Measure.swift in Sources */,
+				558918F32208A7CC00F182BA /* Hyperparameter+UI.swift in Sources */,
 				553366D22204BBED00A67647 /* Anchors.swift in Sources */,
 				558918ED2208218800F182BA /* DrawingBoundingBoxView.swift in Sources */,
 				553366CF220489DD00A67647 /* UIImage+CVPixelBuffer.swift in Sources */,

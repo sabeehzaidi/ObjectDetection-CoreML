@@ -13,6 +13,7 @@ struct DetectedObjectPrediction {
     let classIndex: Int // max 91
     let anchorIndex: Int // max 1917
     let rect: CGRect
+    var className: String? = nil
 }
 
 extension MLMultiArray {
@@ -27,7 +28,7 @@ extension MLMultiArray {
     }
     
     subscript(classIndex: Int, anchorIndex: Int) -> NSNumber? {
-        return self[[0, 0, classIndex, 0, anchorIndex]]
+        return self[classIndex*shape[4].intValue + anchorIndex]
     }
 }
 

@@ -26,21 +26,23 @@ class DrawingBoundingBoxView: UIView {
     }
     
     func createLabelAndBox(prediction: DetectedObjectPrediction) {
+        let color = UIColor.red
+        
         let bgRect = prediction.rect.scale(to: bounds.size)
         let bgView = UIView(frame: bgRect)
-        bgView.layer.borderColor = UIColor.red.cgColor
+        bgView.layer.borderColor = color.cgColor
         bgView.layer.borderWidth = 4
         bgView.backgroundColor = UIColor.clear
         addSubview(bgView)
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-        label.text = "112233"
+        label.text = prediction.className
         label.font = UIFont.systemFont(ofSize: 13)
         label.textColor = UIColor.black
-        if let cgColor = bgView.layer.borderColor {
-            label.backgroundColor = UIColor(cgColor: cgColor)
-        }
+        label.backgroundColor = color
         label.sizeToFit()
+        label.frame = CGRect(x: bgRect.origin.x, y: bgRect.origin.y - label.frame.height,
+                             width: label.frame.width, height: label.frame.height)
         addSubview(label)
     }
 }
