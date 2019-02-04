@@ -10,12 +10,16 @@ import CoreML
 
 class SSDMobileNetPostProcessor {
     var classNames: [String]? = nil
+    var classHues: [Double] = []
     
     init() {
         if let path = Bundle.main.path(forResource: "coco_labels_list", ofType: "txt") {
             do {
                 let data = try String(contentsOfFile: path, encoding: .utf8)
                 classNames = data.components(separatedBy: .newlines)
+                if let classNames = classNames {
+                    classHues = classNames.enumerated().map { Double($0.offset)/Double(classNames.count) }.shuffled()
+                }
             } catch {
                 print(error)
             }
@@ -58,7 +62,8 @@ class SSDMobileNetPostProcessor {
                                                                 classIndex: classIndex,
                                                                 anchorIndex: anchorIndex,
                                                                 rect: rect,
-                                                                className: classNames?[classIndex]))
+                                                                className: classNames?[classIndex],
+                                                                classHue: classHues[classIndex]))
                 }
             }
         }

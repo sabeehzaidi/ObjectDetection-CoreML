@@ -14,6 +14,7 @@ struct DetectedObjectPrediction {
     let anchorIndex: Int // max 1917
     let rect: CGRect
     var className: String? = nil
+    var classHue: Double? = nil
 }
 
 extension MLMultiArray {

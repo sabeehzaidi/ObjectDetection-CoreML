@@ -26,7 +26,8 @@ class DrawingBoundingBoxView: UIView {
     }
     
     func createLabelAndBox(prediction: DetectedObjectPrediction) {
-        let color = UIColor.red
+        let color = UIColor(hue: CGFloat(prediction.classHue ?? 0),
+                            saturation: 1, brightness: 1, alpha: 0.8)
         
         let bgRect = prediction.rect.scale(to: bounds.size)
         let bgView = UIView(frame: bgRect)

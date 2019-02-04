@@ -11,6 +11,7 @@ import Foundation
 struct Hyperparameter {
     // The threshold using on prunning results
     static let confidenceThreshold: Double = 0.0 // sigmoid(0.0) == 0.5
+    
     // The threshold using 'interaction on union' on duplicated box
     static let IOUThreshold: Float = 0.3
 }
