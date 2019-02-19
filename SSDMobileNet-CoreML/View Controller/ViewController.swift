@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         if let visionModel = try? VNCoreMLModel(for: EstimationModel().model) {
             self.visionModel = visionModel
             request = VNCoreMLRequest(model: visionModel, completionHandler: visionRequestDidComplete)
-            request?.imageCropAndScaleOption = .scaleFill
+            request?.imageCropAndScaleOption = .centerCrop
         } else {
             fatalError()
         }

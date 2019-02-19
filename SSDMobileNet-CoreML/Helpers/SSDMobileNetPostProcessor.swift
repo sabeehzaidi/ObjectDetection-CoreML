@@ -18,7 +18,7 @@ class SSDMobileNetPostProcessor {
                 let data = try String(contentsOfFile: path, encoding: .utf8)
                 classNames = data.components(separatedBy: .newlines)
                 if let classNames = classNames {
-                    classHues = classNames.enumerated().map { Double($0.offset)/Double(classNames.count) }.shuffled()
+                    classHues = classNames.enumerated().map { Double($0.offset)/Double(classNames.count) }
                 }
             } catch {
                 print(error)
