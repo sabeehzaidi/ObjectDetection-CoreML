@@ -47,7 +47,7 @@ SSDLite object detection model for Core ML<br>
 
 ### 1. Prerequisites
 
-#### 1.1 Import pose estimation model
+#### 1.1 Import object detection model
 
 ![모델 불러오기.png](https://github.com/tucan9389/MobileNetApp-CoreML/blob/master/resource/%EB%AA%A8%EB%8D%B8%20%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0.png?raw=true)
 
