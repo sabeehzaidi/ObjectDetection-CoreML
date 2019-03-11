@@ -22,14 +22,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var fpsLabel: UILabel!
     
     // MARK - Core ML model
-    typealias EstimationModel = ssd_mobilenet_feature_extractor
+    typealias EstimationModel = MobileNetV2_SSDLite
     
     // MARK: - Vision Properties
     var request: VNCoreMLRequest?
     var visionModel: VNCoreMLModel?
-    
-    // MARK: - Post Processor
-    let postProcessor = SSDMobileNetPostProcessor()
     
     // MARK: - AV Property
     var videoCapture: VideoCapture!
@@ -37,7 +34,7 @@ class ViewController: UIViewController {
     var lastExecution = Date()
     
     // MARK: - TableView Data
-    var predictions: [DetectedObjectPrediction] = []
+    var predictions: [VNRecognizedObjectObservation] = []
     
     // MARK - Performance Measurement Property
     private let 👨‍🔧 = 📏()
@@ -75,7 +72,7 @@ class ViewController: UIViewController {
         if let visionModel = try? VNCoreMLModel(for: EstimationModel().model) {
             self.visionModel = visionModel
             request = VNCoreMLRequest(model: visionModel, completionHandler: visionRequestDidComplete)
-            request?.imageCropAndScaleOption = .centerCrop
+            request?.imageCropAndScaleOption = .scaleFill
         } else {
             fatalError()
         }
@@ -137,33 +134,18 @@ extension ViewController {
     // MARK: - Poseprocessing
     func visionRequestDidComplete(request: VNRequest, error: Error?) {
         self.👨‍🔧.🏷(with: "endInference")
-        if let observations = request.results as? [VNCoreMLFeatureValueObservation],
-            observations.count >= 2,
-            let classPredictions = observations[0].featureValue.multiArrayValue,
-            let boxPredictions = observations[1].featureValue.multiArrayValue {
-                
-//            print(classPredictions) // Double 1 x 1 x 91 x 1 x 1917 array
-//            print(boxPredictions)   // Double 1 x 1 x 4 x 1 x 1917 array
-//            
-//            print(classPredictions.shape)
-//            print(boxPredictions.shape)
-//            
-//            print(boxPredictions[0], boxPredictions[1])
-//            
-//            print(classPredictions[[0, 0, 0, 0, 1]])
-//            
-//            print(boxPredictions[20])
-
-            let predictions: [DetectedObjectPrediction] = postProcessor.convertToPredictions(from: classPredictions, and: boxPredictions)
+        if let predictions = request.results as? [VNRecognizedObjectObservation] {
+//            print(predictions.first?.labels.first?.identifier ?? "nil")
+//            print(predictions.first?.labels.first?.confidence ?? -1)
+            
             self.predictions = predictions
             DispatchQueue.main.async {
                 self.boxesView.predictedObjects = predictions
                 self.labelsTableView.reloadData()
-                
+
                 // end of measure
                 self.👨‍🔧.🎬🤚()
             }
-            print(predictions.count)
         } else {
             // end of measure
             self.👨‍🔧.🎬🤚()
@@ -182,11 +164,11 @@ extension ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let rectString = predictions[indexPath.row].rect.toString(digit: 2)
-        let confidence = predictions[indexPath.row].confidence
-        let confidenceString = String(format: "%.3f", Math.sigmoid(confidence))
+        let rectString = predictions[indexPath.row].boundingBox.toString(digit: 2)
+        let confidence = predictions[indexPath.row].labels.first?.confidence ?? -1
+        let confidenceString = String(format: "%.3f", confidence/*Math.sigmoid(confidence)*/)
         
-        cell.textLabel?.text = postProcessor.getClassName(from: predictions[indexPath.row])
+        cell.textLabel?.text = predictions[indexPath.row].label ?? "N/A"
         cell.detailTextLabel?.text = "\(rectString), \(confidenceString)"
         return cell
     }
@@ -196,8 +178,10 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: 📏Delegate {
     func updateMeasure(inferenceTime: Double, executionTime: Double, fps: Int) {
         //print(executionTime, fps)
-        self.inferenceLabel.text = "inference: \(Int(inferenceTime*1000.0)) mm"
-        self.etimeLabel.text = "execution: \(Int(executionTime*1000.0)) mm"
-        self.fpsLabel.text = "fps: \(fps)"
+        DispatchQueue.main.async {
+            self.inferenceLabel.text = "inference: \(Int(inferenceTime*1000.0)) mm"
+            self.etimeLabel.text = "execution: \(Int(executionTime*1000.0)) mm"
+            self.fpsLabel.text = "fps: \(fps)"
+        }
     }
 }

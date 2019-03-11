@@ -7,24 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		553366BE22047A9800A67647 /* MLMultiArray+SSDMobileNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553366BD22047A9800A67647 /* MLMultiArray+SSDMobileNet.swift */; };
 		553366C62204898800A67647 /* SSDMobileNet_CoreMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553366C52204898800A67647 /* SSDMobileNet_CoreMLTests.swift */; };
-		553366CD2204899B00A67647 /* ssd_mobilenet_feature_extractor.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 554F14AF220366DD00B828B0 /* ssd_mobilenet_feature_extractor.mlmodel */; };
 		553366CF220489DD00A67647 /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553366CE220489DD00A67647 /* UIImage+CVPixelBuffer.swift */; };
 		553366D0220489E000A67647 /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553366CE220489DD00A67647 /* UIImage+CVPixelBuffer.swift */; };
-		553366D22204BBED00A67647 /* Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553366D12204BBED00A67647 /* Anchors.swift */; };
 		554F149C220362AB00B828B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F149B220362AB00B828B0 /* AppDelegate.swift */; };
 		554F149E220362AB00B828B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F149D220362AB00B828B0 /* ViewController.swift */; };
 		554F14A1220362AB00B828B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554F149F220362AB00B828B0 /* Main.storyboard */; };
 		554F14A3220362AC00B828B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554F14A2220362AC00B828B0 /* Assets.xcassets */; };
 		554F14A6220362AC00B828B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554F14A4220362AC00B828B0 /* LaunchScreen.storyboard */; };
 		554F14AE220362DA00B828B0 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F14AD220362DA00B828B0 /* VideoCapture.swift */; };
-		554F14B0220366DD00B828B0 /* ssd_mobilenet_feature_extractor.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 554F14AF220366DD00B828B0 /* ssd_mobilenet_feature_extractor.mlmodel */; };
-		558918E922080C5500F182BA /* SSDMobileNetPostProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558918E822080C5500F182BA /* SSDMobileNetPostProcessor.swift */; };
-		558918EB2208191900F182BA /* coco_labels_list.txt in Resources */ = {isa = PBXBuildFile; fileRef = 558918EA2208191900F182BA /* coco_labels_list.txt */; };
 		558918ED2208218800F182BA /* DrawingBoundingBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558918EC2208218800F182BA /* DrawingBoundingBoxView.swift */; };
 		558918EF22089FFE00F182BA /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558918EE22089FFE00F182BA /* Measure.swift */; };
-		558918F32208A7CC00F182BA /* Hyperparameter+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558918F22208A7CC00F182BA /* Hyperparameter+UI.swift */; };
+		715E7E6C2235DC75008DBC6F /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 715E7E6B2235DC75008DBC6F /* MobileNetV2_SSDLite.mlmodel */; };
+		715E7E6E2235EAD4008DBC6F /* coco_labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 715E7E6D2235EAD4008DBC6F /* coco_labels.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,12 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		553366BD22047A9800A67647 /* MLMultiArray+SSDMobileNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MLMultiArray+SSDMobileNet.swift"; sourceTree = "<group>"; };
 		553366C32204898800A67647 /* SSDMobileNet-CoreMLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SSDMobileNet-CoreMLTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		553366C52204898800A67647 /* SSDMobileNet_CoreMLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDMobileNet_CoreMLTests.swift; sourceTree = "<group>"; };
 		553366C72204898800A67647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		553366CE220489DD00A67647 /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
-		553366D12204BBED00A67647 /* Anchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchors.swift; sourceTree = "<group>"; };
 		554F1498220362AB00B828B0 /* SSDMobileNet-CoreML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SSDMobileNet-CoreML.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		554F149B220362AB00B828B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		554F149D220362AB00B828B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,12 +45,10 @@
 		554F14A5220362AC00B828B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		554F14A7220362AC00B828B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		554F14AD220362DA00B828B0 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
-		554F14AF220366DD00B828B0 /* ssd_mobilenet_feature_extractor.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ssd_mobilenet_feature_extractor.mlmodel; sourceTree = "<group>"; };
-		558918E822080C5500F182BA /* SSDMobileNetPostProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDMobileNetPostProcessor.swift; sourceTree = "<group>"; };
-		558918EA2208191900F182BA /* coco_labels_list.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = coco_labels_list.txt; sourceTree = "<group>"; };
 		558918EC2208218800F182BA /* DrawingBoundingBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBoundingBoxView.swift; sourceTree = "<group>"; };
 		558918EE22089FFE00F182BA /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
-		558918F22208A7CC00F182BA /* Hyperparameter+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hyperparameter+UI.swift"; sourceTree = "<group>"; };
+		715E7E6B2235DC75008DBC6F /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
+		715E7E6D2235EAD4008DBC6F /* coco_labels.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = coco_labels.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +99,8 @@
 		554F149A220362AB00B828B0 /* SSDMobileNet-CoreML */ = {
 			isa = PBXGroup;
 			children = (
-				554F14AF220366DD00B828B0 /* ssd_mobilenet_feature_extractor.mlmodel */,
-				558918EA2208191900F182BA /* coco_labels_list.txt */,
+				715E7E6B2235DC75008DBC6F /* MobileNetV2_SSDLite.mlmodel */,
+				715E7E6D2235EAD4008DBC6F /* coco_labels.txt */,
 				554F149B220362AB00B828B0 /* AppDelegate.swift */,
 				558918F12208A4F300F182BA /* View Controller */,
 				558918F02208A4E000F182BA /* Helpers */,
@@ -126,9 +117,6 @@
 		558918F02208A4E000F182BA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				558918E822080C5500F182BA /* SSDMobileNetPostProcessor.swift */,
-				553366BD22047A9800A67647 /* MLMultiArray+SSDMobileNet.swift */,
-				553366D12204BBED00A67647 /* Anchors.swift */,
 				553366CE220489DD00A67647 /* UIImage+CVPixelBuffer.swift */,
 			);
 			path = Helpers;
@@ -139,7 +127,6 @@
 			children = (
 				554F149D220362AB00B828B0 /* ViewController.swift */,
 				558918EC2208218800F182BA /* DrawingBoundingBoxView.swift */,
-				558918F22208A7CC00F182BA /* Hyperparameter+UI.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -233,9 +220,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				554F14A6220362AC00B828B0 /* LaunchScreen.storyboard in Resources */,
+				715E7E6E2235EAD4008DBC6F /* coco_labels.txt in Resources */,
 				554F14A3220362AC00B828B0 /* Assets.xcassets in Resources */,
 				554F14A1220362AB00B828B0 /* Main.storyboard in Resources */,
-				558918EB2208191900F182BA /* coco_labels_list.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +235,6 @@
 			files = (
 				553366C62204898800A67647 /* SSDMobileNet_CoreMLTests.swift in Sources */,
 				553366D0220489E000A67647 /* UIImage+CVPixelBuffer.swift in Sources */,
-				553366CD2204899B00A67647 /* ssd_mobilenet_feature_extractor.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,15 +243,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				554F149E220362AB00B828B0 /* ViewController.swift in Sources */,
-				558918E922080C5500F182BA /* SSDMobileNetPostProcessor.swift in Sources */,
 				558918EF22089FFE00F182BA /* Measure.swift in Sources */,
-				558918F32208A7CC00F182BA /* Hyperparameter+UI.swift in Sources */,
-				553366D22204BBED00A67647 /* Anchors.swift in Sources */,
 				558918ED2208218800F182BA /* DrawingBoundingBoxView.swift in Sources */,
 				553366CF220489DD00A67647 /* UIImage+CVPixelBuffer.swift in Sources */,
-				554F14B0220366DD00B828B0 /* ssd_mobilenet_feature_extractor.mlmodel in Sources */,
 				554F14AE220362DA00B828B0 /* VideoCapture.swift in Sources */,
-				553366BE22047A9800A67647 /* MLMultiArray+SSDMobileNet.swift in Sources */,
+				715E7E6C2235DC75008DBC6F /* MobileNetV2_SSDLite.mlmodel in Sources */,
 				554F149C220362AB00B828B0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
