@@ -22,9 +22,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var fpsLabel: UILabel!
     
     // MARK - Core ML model
-    // MobileNetV2_SSDLite(iOS12+)
     // YOLOv3(iOS12+), YOLOv3FP16(iOS12+), YOLOv3Int8LUT(iOS12+)
     // YOLOv3Tiny(iOS12+), YOLOv3TinyFP16(iOS12+), YOLOv3TinyInt8LUT(iOS12+)
+    // MobileNetV2_SSDLite(iOS12+), ObjectDetector(iOS12+)
     let objectDectectionModel = YOLOv3Tiny()
     
     // MARK: - Vision Properties
