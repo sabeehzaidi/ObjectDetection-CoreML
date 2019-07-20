@@ -30,14 +30,14 @@ SSDLite object detection model for Core ML<br>
 #### Inference Time
 
 |                | MobileNetV2 SSDLite    |
-| -------------- | -------- |
-| iPhone XS      | (`TODO`) |
-| iPhone XS Max  | (`TODO`) |
-| iPhone XR      | (`TODO`) |
-| iPhone X       | 100 ~ 120 ms   |
-| iPhone 8       | (`TODO`) |
-| iPhone 7       | (`TODO`) |
-| iPhone 6       | (`TODO`) |
+| -------------- | :--------------------: |
+| iPhone XS      | (`TODO`)               |
+| iPhone XS Max  | (`TODO`)               |
+| iPhone XR      | (`TODO`)               |
+| iPhone X       | 100 ~ 120 ms           |
+| iPhone 8       | (`TODO`)               |
+| iPhone 7       | (`TODO`)               |
+| iPhone 6       | (`TODO`)               |
 
 ### Get your own model
 
@@ -90,7 +90,7 @@ try? handler.perform([request])
 
 ## See also
 
-- [motlabs/iOS-Proejcts-with-ML-Models](https://github.com/motlabs/iOS-Proejcts-with-ML-Models)<br>
+- [motlabs/awesome-ml-demos-with-ios](https://github.com/motlabs/awesome-ml-demos-with-ios)<br>
   : The challenge using machine learning model created from tensorflow on iOS
 - [hollance/coreml-survival-guide](https://github.com/hollance/coreml-survival-guide)
 - [vonholst/SSDMobileNet_CoreML](https://github.com/vonholst/SSDMobileNet_CoreML)<br>
