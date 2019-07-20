@@ -22,8 +22,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var fpsLabel: UILabel!
     
     // MARK - Core ML model
-    // MobileNetV2_SSDLite(iOS12+), YOLOv3(iOS12+), YOLOv3FP16(iOS12+), YOLOv3Int8LUT(iOS12+)
-    typealias EstimationModel = YOLOv3Int8LUT
+    // MobileNetV2_SSDLite(iOS12+)
+    // YOLOv3(iOS12+), YOLOv3FP16(iOS12+), YOLOv3Int8LUT(iOS12+)
+    // YOLOv3Tiny(iOS12+), YOLOv3TinyFP16(iOS12+), YOLOv3TinyInt8LUT(iOS12+)
+    let objectDectectionModel = YOLOv3Tiny()
     
     // MARK: - Vision Properties
     var request: VNCoreMLRequest?
@@ -70,12 +72,12 @@ class ViewController: UIViewController {
     
     // MARK: - Setup Core ML
     func setUpModel() {
-        if let visionModel = try? VNCoreMLModel(for: EstimationModel().model) {
+        if let visionModel = try? VNCoreMLModel(for: objectDectectionModel.model) {
             self.visionModel = visionModel
             request = VNCoreMLRequest(model: visionModel, completionHandler: visionRequestDidComplete)
             request?.imageCropAndScaleOption = .scaleFill
         } else {
-            fatalError()
+            fatalError("fail to create vision model")
         }
     }
 
