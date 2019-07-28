@@ -12,32 +12,67 @@ This project is Object Detection on iOS with Core ML.<br>If you are interested i
 
 ## Requirements
 
-- Xcode 9.2+
-- iOS 11.0+
+- Xcode 10.3+
+- iOS 12.0+
 - Swift 4.2
 
-## Download model
-
-### Get Core ML Survival Guide's MobileNetV2+SSDLite model
-
-SSDLite object detection model for Core ML<br>
-☞ Download Core ML model([`MobileNetV2_SSDLite.mlmodel`](https://github.com/hollance/coreml-survival-guide/blob/master/MobileNetV2%2BSSDLite/ObjectDetection/ObjectDetection/MobileNetV2_SSDLite.mlmodel)) and label file([`coco_labels.txt`](https://github.com/hollance/coreml-survival-guide/blob/master/MobileNetV2%2BSSDLite/coco_labels.txt)).
+## Model
 
 #### Model Matadata
 
 ![model metadata](resource/model_metadata2.png)
 
-#### Inference Time
+#### Model Size (MB), Minimum iOS Version
 
-|                | MobileNetV2 SSDLite    |
-| -------------- | :--------------------: |
-| iPhone XS      | (`TODO`)               |
-| iPhone XS Max  | (`TODO`)               |
-| iPhone XR      | (`TODO`)               |
-| iPhone X       | 100 ~ 120 ms           |
-| iPhone 8       | (`TODO`)               |
-| iPhone 7       | (`TODO`)               |
-| iPhone 6       | (`TODO`)               |
+| Model | Size | Minimum<br>iOS Version | Download Link |
+| ----: | :----: | :----: | ----|
+| YOLOv3 | 248.4 | iOS12 | [Machine Learning - Models - Apple Developer](https://developer.apple.com/machine-learning/models) |
+| YOLOv3FP16 | 124.2 | iOS12 | [Machine Learning - Models - Apple Developer](https://developer.apple.com/machine-learning/models) |
+| YOLOv3Int8LUT | 62.2 | iOS12 | [Machine Learning - Models - Apple Developer](https://developer.apple.com/machine-learning/models) |
+| YOLOv3Tiny | 35.5 | iOS12 | [Machine Learning - Models - Apple Developer](https://developer.apple.com/machine-learning/models) |
+| YOLOv3TinyFP16 | 17.8 | iOS12 | [Machine Learning - Models - Apple Developer](https://developer.apple.com/machine-learning/models) |
+| YOLOv3TinyInt8LUT | 8.9 | iOS12 | [Machine Learning - Models - Apple Developer](https://developer.apple.com/machine-learning/models) |
+| MobileNetV2_SSDLite | 9.3 | iOS12 | [SSDMobileNet - Core ML Survival Guide](https://github.com/hollance/coreml-survival-guide/blob/master/MobileNetV2%2BSSDLite/ObjectDetection) |
+| ObjectDetector | 63.7 | iOS12 | [Recognizing Objects in Live Capture \| Apple Developer Documentation](https://developer.apple.com/documentation/vision/recognizing_objects_in_live_capture) |
+
+#### Infernece Time (ms)
+
+| Model vs. Device | XS | XS<br>Max | XR | X | 7+ | 7 |
+| ----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| YOLOv3 | 108 | 93 | 100 | 356 | 569 | 561 |
+| YOLOv3FP16 | 104 | 89 | 101 | 348 | 572 | 565 |
+| YOLOv3Int8LUT | 101 | 92 | 100 | 337 | 575 | 572 |
+| YOLOv3Tiny | 46 | 41 | 47 | 106 | 165 | 168 |
+| YOLOv3TinyFP16 | 51 | 41 | 44 | 103 | 165 | 167 |
+| YOLOv3TinyInt8LUT | 45 | 39 | 39 | 106 | 160 | 161 |
+| MobileNetV2_SSDLite | 31 | 31 | 31 | 109 | 141 | 134 |
+| ObjectDetector | 24 | 26 | 23 | 63 | 86 | 84 |
+
+#### Total Time (ms)
+
+| Model vs. Device | XS | XS<br>Max | XR | X | 7+ | 7 |
+| ----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| YOLOv3 | 108 | 93 | 100 | 357 | 569 | 561 |
+| YOLOv3FP16 | 104 | 89 | 101 | 348 | 572 | 565 |
+| YOLOv3Int8LUT | 102 | 92 | 102 | 338 | 576 | 573 |
+| YOLOv3Tiny | 46 | 42 | 48 | 106 | 166 | 169 |
+| YOLOv3TinyFP16 | 51 | 41 | 44 | 104 | 165 | 167 |
+| YOLOv3TinyInt8LUT | 45 | 39 | 40 | 107 | 160 | 161 |
+| MobileNetV2_SSDLite | 32 | 31 | 32 | 109 | 142 | 134 |
+| ObjectDetector | 25 | 26 | 23 | 64 | 87 | 85 |
+
+#### FPS
+
+| Model vs. Device | XS | XS<br>Max | XR | X | 7+ | 7 |
+| ----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| YOLOv3 | 8 | 10 | 9 | 2 | 1 | 1 |
+| YOLOv3FP16 | 9 | 10 | 8 | 2 | 1 | 1 |
+| YOLOv3Int8LUT | 9 | 10 | 9 | 2 | 1 | 1 |
+| YOLOv3Tiny | 21 | 22 | 20 | 8 | 5 | 5 |
+| YOLOv3TinyFP16 | 19 | 23 | 21 | 9 | 5 | 5 |
+| YOLOv3TinyInt8LUT | 21 | 24 | 23 | 8 | 5 | 5 |
+| MobileNetV2_SSDLite | 23 | 23 | 23 | 8 | 6 | 6 |
+| ObjectDetector | 23 | 23 | 24 | 14 | 10 | 11 |
 
 ### Get your own model
 
