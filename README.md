@@ -100,22 +100,67 @@ No external library yet.
 
 #### 3.1 Import Vision framework
 
-(preparing...)
+```swift
+import Vision
+```
 
 #### 3.2 Define properties for Core ML
 
-(preparing...)
+```swift
+class ViewController: UIViewController {
+    //
+    // ...
+    //
+
+    // MARK: - Vision Properties
+    var request: VNCoreMLRequest?
+    var visionModel: VNCoreMLModel?
+
+    //
+    // ...
+    //
+}
+
+```
 
 #### 3.3 Configure and prepare the model
 
-(preparing...)
+```swift
+// MARK: - Setup Core ML
+extension ViewController {
+    func setupModel() {
+        if let visionModel = try? VNCoreMLModel(for: objectDectectionModel.model) {
+            self.visionModel = visionModel
+            request = VNCoreMLRequest(model: visionModel, completionHandler: visionRequestDidComplete)
+            request?.imageCropAndScaleOption = .scaleFill
+        } else {
+            fatalError("fail to create vision model")
+        }
+    }
+}
+```
+
+```swift
+// MARK: - Post-processing
+extension ViewController {
+    func visionRequestDidComplete(request: VNRequest, error: Error?) {
+        if let predictions = request.results as? [VNRecognizedObjectObservation] {
+            // <# TODO #>
+        }
+    }
+}
+```
 
 #### 3.4 Inference 🏃‍♂️
 
 ```swift
-// on the inference point
-let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer)
-try? handler.perform([request])
+// MARK: - Inference!
+extension ViewController {
+    func predictUsingVision(pixelBuffer: CVPixelBuffer) {
+        let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer)
+        try? handler.perform([request])
+    }
+}
 ```
 
 ## Performance Test
@@ -127,6 +172,7 @@ try? handler.perform([request])
 
 - [motlabs/awesome-ml-demos-with-ios](https://github.com/motlabs/awesome-ml-demos-with-ios)<br>
   : The challenge using machine learning model created from tensorflow on iOS
+- [Machine Learning - Models - Apple Developer](https://developer.apple.com/machine-learning/models)
 - [hollance/coreml-survival-guide](https://github.com/hollance/coreml-survival-guide)
 - [vonholst/SSDMobileNet_CoreML](https://github.com/vonholst/SSDMobileNet_CoreML)<br>
   : iOS project for object detection(SSDMobileNet V1) using Core ML.
