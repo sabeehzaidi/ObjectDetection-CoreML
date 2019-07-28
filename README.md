@@ -18,13 +18,13 @@ This project is Object Detection on iOS with Core ML.<br>If you are interested i
 
 ## Model
 
-#### Model Matadata
+### Model Matadata
 
 ![model metadata](resource/model_metadata2.png)
 
-#### Model Size (MB), Minimum iOS Version
+### Model Size, Minimum iOS Version, Download Link
 
-| Model | Size | Minimum<br>iOS Version | Download Link |
+| Model | Size<br>(MB) | Minimum<br>iOS Version | Download Link |
 | ----: | :----: | :----: | ----|
 | YOLOv3 | 248.4 | iOS12 | [Machine Learning - Models - Apple Developer](https://developer.apple.com/machine-learning/models) |
 | YOLOv3FP16 | 124.2 | iOS12 | [Machine Learning - Models - Apple Developer](https://developer.apple.com/machine-learning/models) |
@@ -35,7 +35,7 @@ This project is Object Detection on iOS with Core ML.<br>If you are interested i
 | MobileNetV2_SSDLite | 9.3 | iOS12 | [SSDMobileNet - Core ML Survival Guide](https://github.com/hollance/coreml-survival-guide/blob/master/MobileNetV2%2BSSDLite/ObjectDetection) |
 | ObjectDetector | 63.7 | iOS12 | [Recognizing Objects in Live Capture \| Apple Developer Documentation](https://developer.apple.com/documentation/vision/recognizing_objects_in_live_capture) |
 
-#### Infernece Time (ms)
+### Infernece Time (ms)
 
 | Model vs. Device | XS | XS<br>Max | XR | X | 7+ | 7 |
 | ----: | :----: | :----: | :----: | :----: | :----: | :----: |
@@ -48,7 +48,7 @@ This project is Object Detection on iOS with Core ML.<br>If you are interested i
 | MobileNetV2_SSDLite | 31 | 31 | 31 | 109 | 141 | 134 |
 | ObjectDetector | 24 | 26 | 23 | 63 | 86 | 84 |
 
-#### Total Time (ms)
+### Total Time (ms)
 
 | Model vs. Device | XS | XS<br>Max | XR | X | 7+ | 7 |
 | ----: | :----: | :----: | :----: | :----: | :----: | :----: |
@@ -61,7 +61,7 @@ This project is Object Detection on iOS with Core ML.<br>If you are interested i
 | MobileNetV2_SSDLite | 32 | 31 | 32 | 109 | 142 | 134 |
 | ObjectDetector | 25 | 26 | 23 | 64 | 87 | 85 |
 
-#### FPS
+### FPS
 
 | Model vs. Device | XS | XS<br>Max | XR | X | 7+ | 7 |
 | ----: | :----: | :----: | :----: | :----: | :----: | :----: |
