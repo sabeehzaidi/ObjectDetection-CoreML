@@ -17,14 +17,10 @@
 		554F14AE220362DA00B828B0 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F14AD220362DA00B828B0 /* VideoCapture.swift */; };
 		558918ED2208218800F182BA /* DrawingBoundingBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558918EC2208218800F182BA /* DrawingBoundingBoxView.swift */; };
 		558918EF22089FFE00F182BA /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558918EE22089FFE00F182BA /* Measure.swift */; };
+		5AC49A8F250603AE00B75C48 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC49A8E250603AE00B75C48 /* MainScreenViewController.swift */; };
+		5AC49A912506072A00B75C48 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC49A902506072A00B75C48 /* InstructionsViewController.swift */; };
 		715E7E6C2235DC75008DBC6F /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 715E7E6B2235DC75008DBC6F /* MobileNetV2_SSDLite.mlmodel */; };
-		71B8322F22E2B0FB00207D05 /* ObjectDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 71B8322B22E2B0FB00207D05 /* ObjectDetector.mlmodel */; };
-		71B8323322E2B7F900207D05 /* YOLOv3TinyFP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 71B8323022E2B7F500207D05 /* YOLOv3TinyFP16.mlmodel */; };
-		71B8323422E2B7F900207D05 /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 71B8323122E2B7F800207D05 /* YOLOv3Tiny.mlmodel */; };
 		71B8323522E2B7F900207D05 /* YOLOv3TinyInt8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 71B8323222E2B7F900207D05 /* YOLOv3TinyInt8LUT.mlmodel */; };
-		71BBE00722E2BAB200E74F11 /* YOLOv3FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 71BBE00422E2BAB200E74F11 /* YOLOv3FP16.mlmodel */; };
-		71BBE00822E2BAB200E74F11 /* YOLOv3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 71BBE00522E2BAB200E74F11 /* YOLOv3Int8LUT.mlmodel */; };
-		71BBE00922E2BAB200E74F11 /* YOLOv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 71BBE00622E2BAB200E74F11 /* YOLOv3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,14 +48,10 @@
 		554F14AD220362DA00B828B0 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		558918EC2208218800F182BA /* DrawingBoundingBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBoundingBoxView.swift; sourceTree = "<group>"; };
 		558918EE22089FFE00F182BA /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
+		5AC49A8E250603AE00B75C48 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		5AC49A902506072A00B75C48 /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		715E7E6B2235DC75008DBC6F /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
-		71B8322B22E2B0FB00207D05 /* ObjectDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ObjectDetector.mlmodel; sourceTree = "<group>"; };
-		71B8323022E2B7F500207D05 /* YOLOv3TinyFP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3TinyFP16.mlmodel; sourceTree = "<group>"; };
-		71B8323122E2B7F800207D05 /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
 		71B8323222E2B7F900207D05 /* YOLOv3TinyInt8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3TinyInt8LUT.mlmodel; sourceTree = "<group>"; };
-		71BBE00422E2BAB200E74F11 /* YOLOv3FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3FP16.mlmodel; sourceTree = "<group>"; };
-		71BBE00522E2BAB200E74F11 /* YOLOv3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Int8LUT.mlmodel; sourceTree = "<group>"; };
-		71BBE00622E2BAB200E74F11 /* YOLOv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				554F149F220362AB00B828B0 /* Main.storyboard */,
+				5AC49A8E250603AE00B75C48 /* MainScreenViewController.swift */,
+				5AC49A902506072A00B75C48 /* InstructionsViewController.swift */,
 				554F149B220362AB00B828B0 /* AppDelegate.swift */,
 				554F149D220362AB00B828B0 /* ViewController.swift */,
 				558918EC2208218800F182BA /* DrawingBoundingBoxView.swift */,
@@ -129,7 +123,6 @@
 				71BBE00322E2BAB200E74F11 /* YOLOv3 */,
 				71B8323622E2B99500207D05 /* YOLOv3Tiny */,
 				715E7E6B2235DC75008DBC6F /* MobileNetV2_SSDLite.mlmodel */,
-				71B8322B22E2B0FB00207D05 /* ObjectDetector.mlmodel */,
 			);
 			path = mlmodel;
 			sourceTree = "<group>";
@@ -147,8 +140,6 @@
 		71B8323622E2B99500207D05 /* YOLOv3Tiny */ = {
 			isa = PBXGroup;
 			children = (
-				71B8323122E2B7F800207D05 /* YOLOv3Tiny.mlmodel */,
-				71B8323022E2B7F500207D05 /* YOLOv3TinyFP16.mlmodel */,
 				71B8323222E2B7F900207D05 /* YOLOv3TinyInt8LUT.mlmodel */,
 			);
 			path = YOLOv3Tiny;
@@ -157,9 +148,6 @@
 		71BBE00322E2BAB200E74F11 /* YOLOv3 */ = {
 			isa = PBXGroup;
 			children = (
-				71BBE00422E2BAB200E74F11 /* YOLOv3FP16.mlmodel */,
-				71BBE00522E2BAB200E74F11 /* YOLOv3Int8LUT.mlmodel */,
-				71BBE00622E2BAB200E74F11 /* YOLOv3.mlmodel */,
 			);
 			path = YOLOv3;
 			sourceTree = "<group>";
@@ -274,19 +262,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				554F149E220362AB00B828B0 /* ViewController.swift in Sources */,
+				5AC49A8F250603AE00B75C48 /* MainScreenViewController.swift in Sources */,
 				558918EF22089FFE00F182BA /* Measure.swift in Sources */,
-				71BBE00922E2BAB200E74F11 /* YOLOv3.mlmodel in Sources */,
 				558918ED2208218800F182BA /* DrawingBoundingBoxView.swift in Sources */,
 				553366CF220489DD00A67647 /* UIImage+CVPixelBuffer.swift in Sources */,
 				554F14AE220362DA00B828B0 /* VideoCapture.swift in Sources */,
-				71B8323322E2B7F900207D05 /* YOLOv3TinyFP16.mlmodel in Sources */,
 				71B8323522E2B7F900207D05 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
-				71BBE00822E2BAB200E74F11 /* YOLOv3Int8LUT.mlmodel in Sources */,
-				71B8323422E2B7F900207D05 /* YOLOv3Tiny.mlmodel in Sources */,
+				5AC49A912506072A00B75C48 /* InstructionsViewController.swift in Sources */,
 				715E7E6C2235DC75008DBC6F /* MobileNetV2_SSDLite.mlmodel in Sources */,
 				554F149C220362AB00B828B0 /* AppDelegate.swift in Sources */,
-				71B8322F22E2B0FB00207D05 /* ObjectDetector.mlmodel in Sources */,
-				71BBE00722E2BAB200E74F11 /* YOLOv3FP16.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +309,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5WXJ4Z4H69;
+				DEVELOPMENT_TEAM = BW89NSKDAD;
 				INFOPLIST_FILE = "SSDMobileNet-CoreMLTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -345,7 +329,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5WXJ4Z4H69;
+				DEVELOPMENT_TEAM = BW89NSKDAD;
 				INFOPLIST_FILE = "SSDMobileNet-CoreMLTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -481,9 +465,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5WXJ4Z4H69;
+				DEVELOPMENT_TEAM = BW89NSKDAD;
 				INFOPLIST_FILE = "ObjectDetection-CoreML/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -500,9 +484,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5WXJ4Z4H69;
+				DEVELOPMENT_TEAM = BW89NSKDAD;
 				INFOPLIST_FILE = "ObjectDetection-CoreML/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

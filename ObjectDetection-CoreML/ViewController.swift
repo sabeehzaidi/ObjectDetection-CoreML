@@ -25,7 +25,8 @@ class ViewController: UIViewController {
     // YOLOv3(iOS12+), YOLOv3FP16(iOS12+), YOLOv3Int8LUT(iOS12+)
     // YOLOv3Tiny(iOS12+), YOLOv3TinyFP16(iOS12+), YOLOv3TinyInt8LUT(iOS12+)
     // MobileNetV2_SSDLite(iOS12+), ObjectDetector(iOS12+)
-    let objectDectectionModel = YOLOv3Tiny()
+    let objectDectectionModel = YOLOv3TinyInt8LUT() //best_covidv5s-27July2020.mlmodel
+//    let objectDectectionModel = best_covidv5x28July20_GC();
     
     //XS
     //XS Max
@@ -215,8 +216,8 @@ extension ViewController {
     func visionRequestDidComplete(request: VNRequest, error: Error?) {
         self.👨‍🔧.🏷(with: "endInference")
         if let predictions = request.results as? [VNRecognizedObjectObservation] {
-//            print(predictions.first?.labels.first?.identifier ?? "nil")
-//            print(predictions.first?.labels.first?.confidence ?? -1)
+            print(predictions.first?.labels.first?.identifier ?? "nil")
+            print(predictions.first?.labels.first?.confidence ?? -1)
             
             self.predictions = predictions
             DispatchQueue.main.async {
@@ -262,7 +263,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: 📏Delegate {
     func updateMeasure(inferenceTime: Double, executionTime: Double, fps: Int) {
         //print(executionTime, fps)
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { //equivalent of runOnUiThread() in Java
             self.maf1.append(element: Int(inferenceTime*1000.0))
             self.maf2.append(element: Int(executionTime*1000.0))
             self.maf3.append(element: fps)
